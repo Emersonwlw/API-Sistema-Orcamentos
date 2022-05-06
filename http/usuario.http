@@ -1,0 +1,12 @@
+POST http://localhost:3000/usuarios
+Content-Type: application/json
+{
+    "email":"emersonwlw@gmail.com",
+    "senha": "123456"
+}
+
+
+###
+
+GET http://localhost:3000/usuario/1
+Authorization: f75bbbc917bb5204e76181e0453263bb

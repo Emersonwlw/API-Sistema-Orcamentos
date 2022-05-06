@@ -1,0 +1,13 @@
+=================
+
+Entidade:
+
+1º Criara as migration
+2º Criar o model
+3º Criar DTO
+4º Criar o serviço
+5º Criar o controller (se preciso)
+6º Criar as rotas no routes.js
+
+7º Rodas as migration
+8º Fazer testes
