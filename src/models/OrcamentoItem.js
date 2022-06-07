@@ -1,6 +1,6 @@
 const { Model, DataTypes} = require('sequelize')
 
-class OrcamentoItem extends Model {
+class OrcamentoItems extends Model {
 
     static init( connection){
         super.init({
@@ -17,7 +17,7 @@ class OrcamentoItem extends Model {
         },{
             sequelize: connection,
             schema: 'public',
-            tableNAME: 'orcamento-item',
+            tableNAME: 'OrcamentoItems',
             createdAt: 'criadoEm',
             updatedAt: 'atualizadoEm',
             timestamps: true,
@@ -30,4 +30,4 @@ class OrcamentoItem extends Model {
 
 }
 
-module.exports = OrcamentoItem;
+module.exports = OrcamentoItems;

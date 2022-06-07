@@ -6,11 +6,12 @@ const Perfil = require ('../models/perfil');
 const Usuario = require ('../models/usuario');
 const Cliente = require('../models/Cliente');
 const Endereco = require('../models/Enderecos');
-const Status = require('./models/Status');
-const Prestador = require('../models/Prestador');
-const Servico = require('../models/Servico');
+const Status = require('../models/Status');
+const Prestador = require('../models/Prestadores');
+const Servico = require('../models/Servicos');
 const Orcamento = require('../models/Orcamento');
 const OrcamentoItem = require('../models/OrcamentoItem');
+
 
 Perfil.init(connection);
 Usuario.init(connection);

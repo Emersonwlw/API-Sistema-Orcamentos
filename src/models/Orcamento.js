@@ -1,6 +1,6 @@
 const { Model, DataTypes} = require('sequelize')
 
-class Orcamento extends Model {
+class orcamento extends Model {
 
     static init( connection){
         super.init({
@@ -25,4 +25,4 @@ class Orcamento extends Model {
 
 }
 
-module.exports = Orcamento;
+module.exports = orcamento;

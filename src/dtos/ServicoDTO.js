@@ -1,3 +1,5 @@
+
+const {ModeloInvalidoErro} = require('../erros/typeErros')
 module.exports = class ServicoDTO {
     constructor(obj){
         obj = obj || {};
@@ -9,4 +11,17 @@ module.exports = class ServicoDTO {
         this.atualizadoEm = obj.atualizadoEm;
     }
 
+    modeloValidoCadastro(){
+       this._validarModelo()
+    }
+
+    modeloValidoAtualizacao(){
+        this._validarModelo()
+     }
+
+    _validarModelo(){
+        if(!this.descricao || this.valor <0 ){
+            throw new ModeloInvalidoErro(400, "Os campos descrição e valor são obrigatórios!")
+         }
+    }
 }

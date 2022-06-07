@@ -4,7 +4,7 @@ const sequelize = require("sequelize");
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('orcamento-item', {
+    return queryInterface.createTable('OrcamentoItems', {
       id:{
         type:Sequelize.BIGINT,
         primaryKey:true,
@@ -58,6 +58,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-   return queryInterface.dropTable('orcamento-item')
+   return queryInterface.dropTable('OrcamentoItems')
   }
 };
