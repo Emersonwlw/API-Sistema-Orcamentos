@@ -4,7 +4,12 @@ const ClienteDTO = require('../dtos/ClienteDTO');
 
 class ClienteController {
 
- 
+ /**
+  * Metodo para obter um cliente através do id dele
+  * @param {object} req 
+  * @param {object} res 
+  * @returns clienteDTO
+  */
     async obterPorId(req,res){
         const id = parseInt(req.params.id);
 
@@ -23,6 +28,12 @@ class ClienteController {
       }
     }
 
+    /**
+     * Metodo para obter uma lista com todos clientes
+     * @param {*} req 
+     * @param {*} res 
+     * @returns lista de clienteDTO
+     */
     async obterTodos(req,res){
 
         try {
@@ -37,6 +48,13 @@ class ClienteController {
           return res.status(error.status).json(error);
       }
     }
+
+    /**
+     * Metodo para cadastrar um cliente
+     * @param {object} req 
+     * @param {object} res 
+     * @returns clienteDTO
+     */
      
     async cadastrar(req,res){
         try {
@@ -53,6 +71,14 @@ class ClienteController {
         }
 
     }
+
+    /**
+     * Método para atualizar um cliente,
+     * é necessario passar o id para atualizar o cliente
+     * @param {object} req 
+     * @param {object} res 
+     * @returns clienteDTO - atualizado
+     */
     async atualizar(req,res){
         const {id } = req.params;
         if(!id){
@@ -74,9 +100,7 @@ class ClienteController {
 
     }
 
-    inativar(req, res){
-        
-    }
+
 }
 
 module.exports = ClienteController;

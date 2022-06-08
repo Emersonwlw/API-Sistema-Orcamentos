@@ -4,7 +4,12 @@ const OrcamentoDTO = require('../dtos/OrcamentoDTO');
 
 class OrcamentoController {
 
- 
+ /**
+  * Método para obter um orçamento pelo seu id
+  * @param {object} req 
+  * @param {object} res 
+  * @returns orcamentoDTO - Junto com todos os itens do orçamento
+  */
     async obterPorId(req,res){
         const id = parseInt(req.params.id);
 
@@ -23,6 +28,13 @@ class OrcamentoController {
       }
     }
 
+    /**
+     * Método para obter uma lista com todos orçamentos, 
+     * sem os seus itens
+     * @param {object} req 
+     * @param {object} res 
+     * @returns uma lista de orcamentoDTO
+     */
     async obterTodos(req,res){
 
         try {
@@ -36,6 +48,13 @@ class OrcamentoController {
           return res.status(error.status).json(error);
       }
     }
+
+    /**
+     * Método para cadastrar um orcamento, e também seus itens
+     * @param {*} req 
+     * @param {*} res 
+     * @returns orcamentoDTO e seus Itens
+     */
      
     async cadastrar(req,res){
         try {
@@ -54,6 +73,13 @@ class OrcamentoController {
 
     }
 
+    /**
+     * Método para atualizar um orçamento e seus itens,
+     * é necessario passar o id do orçamento
+     * @param {object} req 
+     * @param {object} res 
+     * @returns orcamentoDTO e seus itens atualizado
+     */
     async atualizar(req,res){
         const {id } = req.params;
         if(!id){
@@ -75,9 +101,7 @@ class OrcamentoController {
 
     }
 
-    inativar(req, res){
-        
-    }
+
 }
 
 module.exports = OrcamentoController;
