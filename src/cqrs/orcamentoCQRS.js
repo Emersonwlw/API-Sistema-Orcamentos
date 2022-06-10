@@ -39,7 +39,7 @@ left join public.servicos S on OI."idServico" = S."id"
 left join public.prestadores PR on OI."idPrestador" = PR."id"`;
 
 /**
- * Método que retorna uma lista com a capa dos orçamentos.
+ * função que retorna uma lista com a capa dos orçamentos.
  * Aqui não retorna os itens
  * @returns OrcamentoDTO, somente a capa.
  */
@@ -64,7 +64,7 @@ async function obterOrcamentos(){
 }
 
 /**
- * Método que retorna o Orçamento com todos os seus itens
+ * função que retorna o Orçamento com todos os seus itens
  * @param {Number} idOrcamento 
  * @returns OrcamentoDTO
  */

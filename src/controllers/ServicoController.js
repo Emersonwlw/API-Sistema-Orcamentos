@@ -4,7 +4,13 @@ const ServicoDTO = require('../dtos/ServicoDTO');
 
 class ServicoController {
 
- 
+ /**
+  * Método para obter um serviço pelo seu id,
+  * é necessario passar um id no endpoint
+  * @param {*} req 
+  * @param {*} res 
+  * @returns servicoDTO
+  */
     async obterPorId(req,res){
         const id = parseInt(req.params.id);
 
@@ -23,6 +29,13 @@ class ServicoController {
       }
     }
 
+    /**
+     * Método para obter uma lista com todos serviços
+     * @param {*} req 
+     * @param {*} res 
+     * @returns uma lista de servicoDTO
+     */
+
     async obterTodos(req,res){
 
         try {
@@ -38,6 +51,12 @@ class ServicoController {
       }
     }
      
+    /**
+     * Método para cadastrar um serviço, o body precisa estar no modelo serviçoDTO
+     * @param {object} req 
+     * @param {*} res 
+     * @returns servicoDTO
+     */
     async cadastrar(req,res){
         try {
             let servicoDTO = new ServicoDTO(req.body);
@@ -53,6 +72,14 @@ class ServicoController {
         }
 
     }
+
+    /**
+     * Método para atualizar um serviço, é necessario passar um id do serviço no body
+     * os dados no body precisa estar no modelo servicoDTO
+     * @param {*} req 
+     * @param {*} res 
+     * @returns 
+     */
     async atualizar(req,res){
         const {id } = req.params;
         if(!id){
@@ -74,9 +101,7 @@ class ServicoController {
 
     }
 
-    inativar(req, res){
-        
-    }
+  
 }
 
 module.exports = ServicoController;

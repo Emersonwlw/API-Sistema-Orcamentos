@@ -4,6 +4,13 @@ const UsuarioDTO = require('../dtos/UsuarioDTO');
 
 class UsuarioController {
 
+    /**
+     * Método para fazer o login do usuario no sistema,
+     * necessario passar o email e senha no body
+     * @param {object} req 
+     * @param {*} res 
+     * @returns sucesso ou falha junto com o token
+     */
     async login(req, res){
       const {email, senha} = req.body;
 
@@ -21,6 +28,12 @@ class UsuarioController {
 
     }
 
+    /**
+     * Método para deslogar do sistema
+     * @param {*} req 
+     * @param {*} res 
+     * @returns mesagem de sucesso
+     */
     async logout(req, res){
 
         try {
@@ -32,7 +45,13 @@ class UsuarioController {
         }
     }
 
-
+    /**
+     *  Método para obter um usuario pelo id,
+     * necessario passar o id no endpoint para pesquisa
+     * @param {*} req 
+     * @param {*} res 
+     * @returns usuarioDTO
+     */
     async obterPorId(req,res){
       const {id } = req.params;
         try {
@@ -49,6 +68,13 @@ class UsuarioController {
     }
 
      
+    /**
+     * Método para cadastrar um usuario,
+     * os dados no body precisa esta no modelo usuarioDTO
+     * @param {object} req 
+     * @param {*} res 
+     * @returns usuarioDTO cadastrado
+     */
     async cadastrar(req,res){
         try {
             let usuarioDTO = new UsuarioDTO(req.body);
@@ -64,6 +90,15 @@ class UsuarioController {
         }
 
     }
+
+
+    /**
+     * Método para atualizar um usuario,
+     * é necessario passar o id no body e os dados a atualizar no modelo usuarioDTO
+     * @param {*} req 
+     * @param {*} res 
+     * @returns 
+     */
     async atualizar(req,res){
         const {id } = req.params;
         if(!id){
@@ -85,9 +120,6 @@ class UsuarioController {
 
     }
 
-    inativar(req, res){
-        
-    }
 }
 
 module.exports = UsuarioController;
