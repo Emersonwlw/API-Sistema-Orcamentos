@@ -6,7 +6,12 @@ const {NaoAutorizadoErro, NaoEncontradoErro, AplicacaoErro} = require('../erros/
 const { Client } = require('pg/lib');
 const cliente = require('../models/Cliente');
 
-
+/**
+ * função para obter um cliente pelo id, necessario passar um id para a mesma
+ * essa função filtra e verifica se o id é valido, caso possitivo retorna um modelo clietneDTO
+ * @param {Number} id 
+ * @returns ClienteDTO
+ */
 async function obterPorId(id){
     let cliente = await Cliente.findByPk(id);
 
@@ -23,7 +28,12 @@ async function obterPorId(id){
     
 }
 
-
+/**
+ * função para cadastrar um cliente,
+ * é necessarios passar os dados no modelo clienteDTO
+ * @param {object} clienteDTO 
+ * @returns ClienteDTO - Cadastrado
+ */
 async function cadastrar(clienteDTO) {
 
     let cliente =  await Cliente.create(clienteDTO);
@@ -48,6 +58,12 @@ async function cadastrar(clienteDTO) {
 
 }
 
+/**
+ * função para atualizar um cliente,
+ * é necessario passar os dados no modelo ClienteDTO
+ * @param {object} clienteDTO 
+ * @returns ClienteDTO - Atualizado
+ */
 async function atualizar(clienteDTO) {
 
     
@@ -81,6 +97,11 @@ async function atualizar(clienteDTO) {
     return clienteDTO;
 
 }
+
+/**
+ * função para obter uma lista com todos clientes
+ * @returns uma lista de ClienteDTO
+ */
 
 async function obterTodos(){
     let clientes = await Cliente.findAll();

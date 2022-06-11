@@ -2,6 +2,10 @@ const clienteService = require('../services/clienteService');
 const {NaoAutorizadoErro, ModeloInvalidoErro} = require('../erros/typeErros');
 const ClienteDTO = require('../dtos/ClienteDTO');
 
+/**
+ * Classe ClienteController, validação e controle de dados 
+ * @author Emersonwlw
+ */
 class ClienteController {
 
  /**

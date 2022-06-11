@@ -7,6 +7,13 @@ const orcamentoCQRS = require('../cqrs/orcamentoCQRS');
 
 const connection = require('../database/index')
 
+
+/**
+ * função para obter um orçamento com todos itens pelo id,
+ * a função filta id e retorna se é valido, se sim retorna o OrcamentoDTo
+ * @param {Number} id 
+ * @returns OrcamentoDTO
+ */
 async function obterPorId(id){
     let orcamento = await Orcamento.findByPk(id);
 
@@ -18,10 +25,20 @@ async function obterPorId(id){
     
 }
 
+/**
+ * função para obter uma lista com todos orçamentos, sem os itens
+ * @returns uma lista de OrcamentoDTo
+ */
 async function obterTodos(){
    return await orcamentoCQRS.obterOrcamentos();
 }
 
+/**
+ * função para cadastrar um orçamento, necessario passar os dados no modelo OrcamentoDTO, e os 
+ * itens em um array no modelo OrcamentoItemDTO
+ * @param {object} orcamentoDTO 
+ * @returns OrcamentoDTO
+ */
 async function cadastrar(orcamentoDTO) {
 
     let transaction = await connection.transaction();
@@ -67,6 +84,13 @@ async function cadastrar(orcamentoDTO) {
  
 }
 
+/**
+ * função para atualizar um orçamento, necessario passar o id do orçamento e os dados no modelo
+ * OrcamentoDTO e OrcamentoItemDTO,
+ * essa função chama outras três funçoes privadas para adicionar, atualizar e deletar os itens desejados
+ * @param {object} orcamentoDTO 
+ * @returns OrcamentoDTO
+ */
 async function atualizar(orcamentoDTO) {
    
 
@@ -96,6 +120,13 @@ async function atualizar(orcamentoDTO) {
 
 }
 
+
+/**
+ *  função privada para adicionar itens ao atualizar o orçamento
+ * @param {object} orcamentoDTO 
+ * @param {object} orcamentoBanco 
+ * @param {*} transaction 
+ */
 async function _adicionarItens(orcamentoDTO, orcamentoBanco, transaction){
     let itensAdicionados = [];
     orcamentoDTO.itens.map(item =>{
@@ -116,6 +147,12 @@ async function _adicionarItens(orcamentoDTO, orcamentoBanco, transaction){
     
 }
 
+/**
+ *  função privada para atualizar os itens ao atualizar o orçamento
+ * @param {object} orcamentoDTO 
+ * @param {object} orcamentoBanco 
+ * @param {*} transaction 
+ */
  async function _atualizarItens(orcamentoDTO, orcamentoBanco, transaction){
 
   
@@ -139,6 +176,13 @@ async function _adicionarItens(orcamentoDTO, orcamentoBanco, transaction){
     
 }
 
+
+/**
+ *  função privada para deletar os itens ao atualizar o orçamento
+ * @param {object} orcamentoDTO 
+ * @param {object} orcamentoBanco 
+ * @param {*} transaction 
+ */
 async function _deletarItens(orcamentoDTO, orcamentoBanco, transaction){
 
   

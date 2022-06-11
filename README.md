@@ -26,6 +26,13 @@ Tabela de conteúdos
 Esta é uma API de estudos criada em acompanhamento ao curso do [Weberson Rodrigues](https://github.com/WebersonRodrigues), nela foi implentado conceitos 
 de arquitetura MVC, segurança de codigo, boas praticas de programação, escalabilidade e documentação com JavaDOC.
 
+Estrutura da API
+
+<h1 align="left">
+    <img alt="Estrutura API" title="API" src="./src/assets/estrutura.png" width="380px" />
+</h1>
+
+
 Esta API será parte de um estudo pessoal, onde pretendo incluir novas funcionalidades, testes e fazer o deploy e disponibilização na AWS.
 
 

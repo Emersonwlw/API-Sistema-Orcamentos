@@ -2,7 +2,11 @@ const {NaoAutorizadoErro, NaoEncontradoErro, AplicacaoErro} = require('../erros/
 const Prestador = require("../models/Prestadores");
 const PrestadorDTO = require ("../dtos/PrestadorDTO");
 
-
+/**
+ * função para obter um prestador pelo id, necessario passar um id valido 
+ * @param {Number} id 
+ * @returns PrestadorDTO
+ */
 async function obterPorId(id){
     let prestador = await Prestador.findByPk(id);
 
@@ -13,7 +17,10 @@ async function obterPorId(id){
     return new PrestadorDTO(servico);
     
 }
-
+/**
+ * função para obter todos prestadores
+ * @returns uma lista de PrestadorDTO
+ */
 async function obterTodos(){
     let prestadores = await Prestador.findAll();
 
@@ -21,6 +28,11 @@ async function obterTodos(){
 
 }
 
+/**
+ * função para cadastrar um prestador, necessario passa os dados no modelo PrestadorDTO
+ * @param {object} prestadorDTO 
+ * @returns PrestadorDTO - cadastrado
+ */
 async function cadastrar(prestadorDTO) {
 
     let prestador =  await Prestador.create(prestadorDTO);
@@ -33,6 +45,11 @@ async function cadastrar(prestadorDTO) {
  
 }
 
+/**
+ * função para atualizar um prestador, necessario passar os dados no modelo PrestadorDTO
+ * @param {object} prestadorDTO 
+ * @returns PrestadorDTO
+ */
 async function atualizar(prestadorDTO) {
 
     
