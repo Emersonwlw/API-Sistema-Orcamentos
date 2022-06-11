@@ -6,7 +6,12 @@ const usuarioCache = require ('../cache/usuarioCache');
 const UsuarioDTO = require('../dtos/UsuarioDTO');
 const PerfilDTO = require('../dtos/PerfilDTO');
 
-
+/**
+ * função para validar um usuario, usado na autenticação 
+ * @param {String} email 
+ * @param {String} senha 
+ * @returns credencial
+ */
 async function validarUsuario(email, senha){
     
     //1º Saber se esse usuario existe no nosso bancode dados.
@@ -30,6 +35,11 @@ async function validarUsuario(email, senha){
 
 }   
 
+/**
+ * função privada para gerar um token de autenticação
+ * @param {object} usuario 
+ * @returns credencial
+ */
 function _criarCredencial(usuario){
 
     let dataExpiracao = geradorToken.gerarDataExpiracao();
@@ -53,10 +63,19 @@ function _criarCredencial(usuario){
 
 }
 
+/**
+ * função para fazer o logout do usuario, remove o token do cache
+ * @param {*} token 
+ */
 async function logout (token){
     usuarioCache.removerNoCache(token);
 }
 
+/**
+ * função para obter um usuario pelo id, necessario passar um id para a busca
+ * @param {Number} id 
+ * @returns UsuarioDTO
+ */
 async function obterPorId(id){
     let usuario = await Usuario.findByPk(id);
 
@@ -72,6 +91,12 @@ async function obterPorId(id){
     return usuarioDTO;
 }
 
+
+/**
+ * função para validar um token de usuario, utilizada em mid
+ * @param {*} token 
+ * @returns true ou false
+ */
 async function validarAutenticacao(token){
 
     let credencial = usuarioCache.obterCredendialPorToken(token);
@@ -88,6 +113,11 @@ async function validarAutenticacao(token){
 
 }
 
+/**
+ * função para cadastrar um novo usuario, necessario passar os dados no modelo UsuarioDTO
+ * @param {object} usuarioDTO 
+ * @returns UsuarioDTO cadatrado
+ */
 async function cadastrar(usuarioDTO){
 
     usuarioDTO.senha = geradorToken.gerarHashdaSenha(usuarioDTO.senha);
@@ -107,6 +137,12 @@ async function cadastrar(usuarioDTO){
 
 }
 
+
+/**
+ * função para atualizar um usuario, necessario passar os dados no modelo UsuarioDTO
+ * @param {object} usuarioDTO 
+ * @returns UsuarioDTO atualizado
+ */
 async function atualizar(usuarioDTO){
 
     let usuario = await Usuario.findByPk(usuarioDTO.id);

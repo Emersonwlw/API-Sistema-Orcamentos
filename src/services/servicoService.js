@@ -3,6 +3,12 @@ const Servico = require("../models/Servicos");
 const ServicoDTO = require ("../dtos/ServicoDTO");
 
 
+/**
+ * função para obter um serviço pelo id,
+ * necessarios passar o id para filtrar a busca
+ * @param {Number} id 
+ * @returns ServicoDTO
+ */
 async function obterPorId(id){
     let servico = await Servico.findByPk(id);
 
@@ -14,6 +20,10 @@ async function obterPorId(id){
     
 }
 
+/**
+ * função para obter uma lista com todos serviços
+ * @returns uma lista de SErvicoDTO
+ */
 async function obterTodos(){
     let servicos = await Servico.findAll();
 
@@ -21,6 +31,11 @@ async function obterTodos(){
 
 }
 
+/**
+ * função para cadastrar um novo serviço, necessario passar os dados no modelo ServicoDTO
+ * @param {object} servicoDTO 
+ * @returns ServicoDTO
+ */
 async function cadastrar(servicoDTO) {
 
     let servico =  await Servico.create(servicoDTO);
@@ -33,6 +48,11 @@ async function cadastrar(servicoDTO) {
  
 }
 
+/**
+ * função para atualizar um serviço, necessario passar os dados no modelo ServicoDTO
+ * @param {object} servicoDTO 
+ * @returns ServicoDTO
+ */
 async function atualizar(servicoDTO) {
 
     
@@ -52,8 +72,6 @@ async function atualizar(servicoDTO) {
     return servicoDTO;
 
 }
-
-
 
 module.exports = {
     obterPorId,
