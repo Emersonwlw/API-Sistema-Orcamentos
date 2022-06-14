@@ -8,7 +8,7 @@ class status extends Model {
         },{
             sequelize: connection,
             schema: 'public',
-            tableNAME: 'status',
+            tableNAME: 'statuses',
             createdAt: 'criadoEm',
             updatedAt: 'atualizadoEm',
             timestamps: true,

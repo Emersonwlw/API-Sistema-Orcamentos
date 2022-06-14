@@ -2,13 +2,12 @@ Próximos passos a serem feitos:
 
 1° Documentar todo o projeto.
     1.1 Todos os Controllers -ok
-    1.2 Todos os Services
-    1.3 Todos os CQRS. - ok
+    1.2 Todos os Services - ok
     1.4 Todos os metodos que forem importantes e estejam isolados - ok
 
 2° Criar todo o fluxo de Status.
     2.1 Criar o seed de Status (Pendente, Aguardando, Aprovado, Reprovado, Cancelado) - ok
-    2.2 Criar um endpoint para obter a lista de status (Esse cara pode estar dentro do controller de orcamento)
+    2.2 Criar um endpoint para obter a lista de status (Esse cara pode estar dentro do controller de orcamento) ok
     2.3 Alterar o Orcamento para trabalhar com idStatus e o OrcamentoDTO para trabalhar com o StatusDTO
     2.4 Alterar o CQRS para trabalhar com status.
     2.5 Alterar os metodos do service de orcamento para trabalhar com status.

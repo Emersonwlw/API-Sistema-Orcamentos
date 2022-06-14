@@ -73,6 +73,7 @@ routes.post('/orcamentos', orcamentocontroller.cadastrar);
 routes.get('/orcamentos', orcamentocontroller.obterTodos); 
 routes.get('/orcamentos/:id', orcamentocontroller.obterPorId);
 routes.put('/orcamentos/:id', orcamentocontroller.atualizar);
+routes.get('/status', orcamentocontroller.obterTodosStatus);
 
 
 module.exports = routes;

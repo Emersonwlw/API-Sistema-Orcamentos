@@ -3,7 +3,9 @@ const Orcamento = require("../models/Orcamento");
 const OrcamentoItem = require("../models/OrcamentoItem");
 const OrcamentoDTO = require ("../dtos/OrcamentoDTO");
 const OrcamentoItemDTO = require ("../dtos/OrcamentoItemDTO");
+const StatusDTO = require('../dtos/StatusDTO');
 const orcamentoCQRS = require('../cqrs/orcamentoCQRS');
+const Status = require('../models/Status');
 
 const connection = require('../database/index')
 
@@ -27,10 +29,20 @@ async function obterPorId(id){
 
 /**
  * função para obter uma lista com todos orçamentos, sem os itens
- * @returns uma lista de OrcamentoDTo
+ * @returns uma lista de OrcamentoDTO
  */
 async function obterTodos(){
    return await orcamentoCQRS.obterOrcamentos();
+}
+
+/**
+ * função para obter todos Status
+ * @returns uma lista de StatusDTO
+ */
+async function obterTodosStatus(){
+    let status = await Status.findAll();
+
+    return status && status.map(m => new StatusDTO(m)) || [];
 }
 
 /**
@@ -206,5 +218,6 @@ module.exports = {
     obterPorId,
     obterTodos,
     cadastrar,
-    atualizar
+    atualizar,
+    obterTodosStatus
 }

@@ -49,6 +49,26 @@ class OrcamentoController {
       }
     }
 
+
+    /**
+     * método para obter todos status
+     * @param {object} req 
+     * @param {object} res 
+     * @returns uma lista de StatusDTO  
+     */
+    async obterTodosStatus(req, res){
+        try {
+            let status = await orcamentoService.obterTodosStatus();
+            return res.json(status);
+        } catch (error) {
+            console.log(error);
+            return res.status(error.status).json(error);
+        }
+
+    }
+
+
+
     /**
      * Método para cadastrar um orcamento, e também seus itens
      * @param {*} req 
@@ -100,6 +120,8 @@ class OrcamentoController {
         }
 
     }
+
+
 
 
 }

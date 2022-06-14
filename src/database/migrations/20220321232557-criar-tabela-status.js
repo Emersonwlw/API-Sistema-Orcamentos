@@ -4,7 +4,7 @@ const sequelize = require("sequelize");
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('status', {
+    return queryInterface.createTable('statuses', {
       id:{
         type:Sequelize.BIGINT,
         primaryKey:true,
@@ -31,6 +31,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-   return queryInterface.dropTable('status')
+   return queryInterface.dropTable('statuses')
   }
 };
