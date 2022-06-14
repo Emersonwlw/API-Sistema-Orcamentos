@@ -1,7 +1,3 @@
-# API-Sistema-Orcamentos
-API de estudo criada para um sistema de orçamentos
-
-
 <h1 align="center">API Gestão Service</h1>
 
 <p align="center">API de estudo criada para um sistema de orçamentos, em JavaScrip com Node.js</p>
@@ -13,7 +9,7 @@ API de estudo criada para um sistema de orçamentos
 Tabela de conteúdos
 =================
 <!--ts-->
-   * [Tabela de Conteudo](#tabela-de-conteudo)
+   * [Tabela de Conteúdo](#tabela-de-conteudo)
    * [Sobre](#Sobre)
    * [Como usar](#como-usar)
       * [Pre Requisitos](#pre-requisitos)
@@ -23,13 +19,21 @@ Tabela de conteúdos
 
 ## 💻 [Sobre](#Sobre)
 
-Esta é uma API de estudos criada em acompanhamento ao curso do [Weberson Rodrigues](https://github.com/WebersonRodrigues), nela foi implentado conceitos 
-de arquitetura MVC, segurança de codigo, boas praticas de programação, escalabilidade e documentação com JavaDOC.
+Esta é uma API de estudos criada em acompanhamento ao curso do [Weberson Rodrigues](https://github.com/WebersonRodrigues), nesta aplicação foi utilizado conceitos:
+
+Arquitetura MVC,
+Segurança de codigo,
+Divisão de responsabilidades,
+Boas praticas de programação,
+Escalabilidade,
+Documentação com JavaDOC,
+DTOS,
+Seeds
 
 Estrutura da API
 
 <h1 align="left">
-    <img alt="Estrutura API" title="API" src="./src/assets/estrutura.png" width="380px" />
+    <img alt="Estrutura API" title="API" src="./src/assets/estrutura.png" width="720px" />
 </h1>
 
 
