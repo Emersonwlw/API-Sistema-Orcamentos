@@ -1,6 +1,6 @@
 <h1 align="center">API Gestão Service</h1>
 
-<p align="center">API de estudo criada para um sistema de orçamentos, em JavaScrip com Node.js</p>
+<p align="center">API de estudo criada para um sistema de orçamentos, em JavaScript com Node.js</p>
 
 <h4 align="center"> 
 	🚧 MVP Pronto 🚧
